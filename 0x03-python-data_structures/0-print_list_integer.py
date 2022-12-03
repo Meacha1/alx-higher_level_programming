@@ -1,4 +1,4 @@
 #!/usr/bin/python3
-st_integer(my_list=[]):
+def print_list_integer(my_list=[]):
     for i in range(0,len(my_list),1):
-        print("{:d}". format(my_list[i]))
+        print("{}". format(my_list[i]))
