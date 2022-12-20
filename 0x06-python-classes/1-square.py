@@ -9,5 +9,5 @@ class Square:
     """
 
     def __init__(self, size):
-        """Initializes the var"""
-        self.__size = size      
+        """Initializes the variable"""
+        self.__size = size
