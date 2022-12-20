@@ -9,5 +9,5 @@ class Square:
     """
 
     def __init__(self, size=0):
-    """intialization of the vars"""
+        """intialization of the vars"""
         self.__size = size
