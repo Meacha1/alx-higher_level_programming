@@ -13,9 +13,4 @@ Returns:
 """
 def is_kind_of_class(obj, a_class):
     """True if obj is an instance or inherited from a_class, else False"""
-    if isinstance(obj, a_class):
-        return True 
-    #Check if the specified object is an instance of a
-    #class that inherited from the specified class
-    else:
-        return isinstance(obj.__class__.__bases__, a_class
+    return (isinstance(obj, a_class))
