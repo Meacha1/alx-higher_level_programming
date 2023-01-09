@@ -8,7 +8,7 @@ the specified class; otherwise False
 Arguments:
     obj : The specified object
     a_class: The class to compare against
-    
+
 Returns:
     True or False
 """
