@@ -1,2 +1,2 @@
 #!/usr/bin/node
-console.log("JavaScript is amazing")
+const myVar = console.log("JavaScript is amazing");
