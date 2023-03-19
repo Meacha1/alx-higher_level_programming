@@ -3,36 +3,29 @@
 This script lists all states from the
 database `hbtn_0e_0_usa`.
 """
+import MySQLdb
 import sys
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String
 
-# MySQL connection info
-user = sys.argv[1]
-password = sys.argv[2]
-dbname = sys.argv[3]
+if __name__ == '__main__':
+    # take mysql username, password, and database name as arguments
+    mysql_username, mysql_password, db_name = sys.argv[1:]
 
-# Create the engine for connecting to the database
-engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(user, password, dbname), pool_recycle=3600)
+    # connect to MySQL server running on localhost at port 3306
+    db = MySQLdb.connect(host="localhost", port=3306, user=mysql_username,
+                         passwd=mysql_password, db=db_name)
 
-# Create the declarative base class for defining ORM classes
-Base = declarative_base()
+    # create a cursor object to execute queries
+    cursor = db.cursor()
 
-# Define the State ORM class
-class State(Base):
-    __tablename__ = 'states'
-    id = Column(Integer, primary_key=True, nullable=False)
-    name = Column(String(128), nullable=False)
+    # execute query to select all states from the states table
+    cursor.execute("SELECT * FROM states ORDER BY id ASC")
 
-# Create a session for querying the database
-Session = sessionmaker(bind=engine)
-session = Session()
+    # fetch all rows from the query result
+    rows = cursor.fetchall()
 
-# Query the database for all states and order by id
-states = session.query(State).order_by(State.id).all()
+    # print the result as formatted string
+    for row in rows:
+        print(row)
 
-# Print out the results
-for state in states:
-    print("{}: {}".format(state.id, state.name))
+    # close the database connection
+    db.close()
