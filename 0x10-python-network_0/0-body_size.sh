@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Take URL as argument
 url=$1
 
