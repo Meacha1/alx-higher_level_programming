@@ -1,7 +1,11 @@
 #!/usr/bin/python3
-def find_peak(list_of_integers):
-"""Finds a peak in a list of unsorted integers."""
 
+"""
+Finds a peak in a list of unsorted integers.
+"""
+
+
+def find_peak(list_of_integers):
     # Initialize the start and end indices.
     start = 0
     end = len(list_of_integers) - 1
