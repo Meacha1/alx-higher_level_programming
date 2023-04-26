@@ -10,7 +10,7 @@ request(url, function (error, response, body) {
   let count = 0;
   for (let i = 0; i < json.results.length; i++) {
     for (let j = 0; j < json.results[i].characters.length; j++) {
-      if (json.results[i].characters[j].includes('https://swapi-api.alx-tools.com/api/people/${wedgeAntillesId}/')) {
+      if (json.results[i].characters[j].includes(`https://swapi-api.alx-tools.com/api/people/${wedgeAntillesId}`)) {
         count++;
       }
     }
