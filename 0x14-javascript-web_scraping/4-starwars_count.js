@@ -1,6 +1,6 @@
 #!/usr/bin/node
 const request = require('request');
-const url = 'https://swapi-api.hbtn.io/api/films/';
+const url = process.argv[2];
 request(url, function (error, response, body) {
   if (error) {
     return console.log(error);
@@ -9,7 +9,7 @@ request(url, function (error, response, body) {
   let count = 0;
   for (let i = 0; i < json.results.length; i++) {
     for (let j = 0; j < json.results[i].characters.length; j++) {
-      if (json.results[i].characters[j].includes('18')) {
+      if (json.results[i].characters[j].includes('https://swapi-api.alx-tools.com/api/people/18')) {
         count++;
       }
     }
